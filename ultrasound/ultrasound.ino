@@ -79,9 +79,9 @@ void loop() {
     
     // Prepare buffer with message and print it on the console so you can see
     // what is being sent.
-    int len = sprintf(buffer, "{\"dist\" : %d}", distance);
+    sprintf(buffer, "{\"dist\" : %lu}", distance);
     Serial.println(buffer);
-    
+   
     // Send the contents of buffer over NB-IoT.
     if (! nbiot.createSocket()) {
         Serial.println("Failed to create socket.  Will retry in 5 seconds");
@@ -89,7 +89,7 @@ void loop() {
         return;
     }
     
-    if (nbiot.send(buffer, len)) {
+    if (nbiot.send(buffer, strlen(buffer))) {
         Serial.println("Succeeded in sending message");
     } else {
         Serial. println("Failed to send message");
