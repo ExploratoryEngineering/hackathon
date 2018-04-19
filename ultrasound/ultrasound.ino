@@ -129,7 +129,7 @@ void loop() {
     // Close the socket.
     nbiot.closeSocket();
     
-    // Wait for 10.000 milliseconds, which is 10 seconds
+    // Wait for MILLISECONDS_BETWEEN_MESSAGES milliseconds
     Serial.print("*** Waiting for ");
     Serial.print(MILLISECONDS_BETWEEN_MESSAGES / 1000);
     Serial.println(" seconds");
